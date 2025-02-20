@@ -1,0 +1,103 @@
+/* 通用样式 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+}
+
+/* 标题居中 */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* 搜索容器样式：使用flexbox居中 */
+.search-container {
+    display: flex;
+    justify-content: center; /* 居中对齐 */
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* 如果宽度不足，可以自动换行 */
+}
+
+/* 容器内部分配：使用flex布局确保关键词检索和选择观测点在同一行 */
+.search-section, .site-section {
+    display: inline-block;
+    margin-right: 20px; /* 让两部分之间有间距 */
+    vertical-align: middle; /* 确保它们垂直对齐 */
+    margin-bottom: 10px; /* 防止在小屏幕上超出 */
+}
+
+/* 输入框、按钮样式 */
+input, select, button {
+    font-size: 16px;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* 按钮样式 */
+button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* 表格样式 */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    table-layout: fixed; /* 固定宽度 */
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* 输入框和按钮对齐 */
+label {
+    margin-right: 10px;
+}
+
+/* 下拉框宽度 */
+select {
+    width: 200px;
+}
+
+input[type="text"] {
+    width: 250px;
+}
+
+/* 导出按钮和检索按钮对齐 */
+button + button {
+    margin-left: 10px;
+}
+
+/* 拉丁学名斜体 */
+td.latinName {
+    font-style: italic;
+}

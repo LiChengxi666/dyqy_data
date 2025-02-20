@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鸟类观测数据检索</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>“滇羽奇缘”鸟塘数据</h1>
+    
+    <!-- 将检索元件放在一个居中的容器内 -->
+    <div class="search-container">
+        <div class="search-section">
+            <label for="searchKeyword">选择检索关键词:</label>
+            <select id="searchKeyword">
+                <!-- <option value="birdID">鸟种编号</option> -->
+                <option value="chineseName">中文名</option>
+                <option value="latinName">拉丁学名</option>
+                <option value="englishName">英文名</option>
+            </select>
+            
+            <input type="text" id="searchText" placeholder="输入检索关键词">
+        </div>
+
+        <div class="site-section">
+            <label for="site">选择观测点:</label>
+            <select id="site">
+                <option value="">全部观测点</option>
+                <!-- 观测点选项将由JavaScript动态加载 -->
+            </select>
+
+            <button onclick="searchData()">检索</button>
+            <button onclick="exportToExcel()">导出为Excel</button>
+        </div>
+    </div>
+    
+    <!-- <h2>检索结果:</h2> -->
+    <table id="resultTable" border="1">
+        <thead>
+            <tr>
+                <th>观测点</th>
+                <th>鸟种编号</th>
+                <th>中文名</th>
+                <th>拉丁学名</th>
+                <th>英文名</th>
+                <th>分类</th>
+                <th>观测次数</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 检索结果会显示在这里 -->
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
