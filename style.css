@@ -22,6 +22,20 @@ h1 {
     flex-wrap: wrap; /* 如果宽度不足，可以自动换行 */
 }
 
+/* 概况展示区域 */
+#overview {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#dataDescription {
+    text-align: center;
+    font-size: 18px;
+    padding-right: 20px;
+}
+
 /* 容器内部分配：使用flex布局确保关键词检索和选择观测点在同一行 */
 .search-section, .site-section {
     display: inline-block;
