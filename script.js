@@ -20,6 +20,10 @@ fetch(dataPath)
 function processData(workbook) {
     data = [];
     allSites = [];
+    let birdSpecies = new Set();
+    let familySet = new Set();
+    let orderSet = new Set();
+    
     workbook.SheetNames.forEach(sheetName => {
         const worksheet = workbook.Sheets[sheetName];
         const json = XLSX.utils.sheet_to_json(worksheet, { header: 1 }); // 获取工作表的数据
@@ -28,6 +32,9 @@ function processData(workbook) {
             const siteData = {
                 siteName: sheetName,  // 工作表名称即为观测点名称
                 birds: json.slice(1).map(row => {  // 跳过第一行表头
+                    birdSpecies.add(row[1]); // 加入鸟种（中文名）
+                    familySet.add(row[5]);  // 加入科
+                    orderSet.add(row[4]);   // 加入目
                     return {
                         birdID: row[0],
                         chineseName: row[1],
@@ -44,7 +51,13 @@ function processData(workbook) {
             allSites.push(sheetName);  // 记录观测点名称
         }
     });
-
+    
+    // 更新概况数据
+    document.getElementById('siteCount').textContent = allSites.length;
+    document.getElementById('birdCount').textContent = birdSpecies.size;
+    document.getElementById('familyCount').textContent = familySet.size;
+    document.getElementById('orderCount').textContent = orderSet.size;
+    
     // 更新观测点下拉框
     const siteSelect = document.getElementById('site');
     siteSelect.innerHTML = '';  // 清空下拉框
